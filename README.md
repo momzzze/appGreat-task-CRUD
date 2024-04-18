@@ -38,20 +38,10 @@ This project is a simple CRUD (Create, Read, Update, Delete) application for upl
 
 #### Technologies:
 
-- **Backend:** Node.js, Express.js
+- **Backend:** Node.js, Express.js, Mongoose
 - **Frontend:** React.js, Vite, React Router
 - **Database:** MongoDB (optional)
-- **Styling:** CSS, CSS Modules, or CSS-in-JS libraries (e.g., styled-components)
-
-#### Setup Instructions:
-
-1. **Clone Repository:** Clone the project repository from GitHub.
-2. **Install Dependencies:** Install backend and frontend dependencies using npm or yarn.
-3. **Setup Backend:** Configure backend environment variables and database connection (if using MongoDB).
-4. **Run Backend:** Start the backend server.
-5. **Setup Frontend:** Configure frontend environment variables (if any).
-6. **Run Frontend:** Start the frontend development server.
-7. **Access Application:** Access the application in the web browser at the specified URL.
+- **Styling:** CSS
 
 #### Development Road
 
@@ -71,7 +61,7 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 #### Author:
 
-[Your Name]
+Nikola Ninov
 
 #### Acknowledgements:
 
