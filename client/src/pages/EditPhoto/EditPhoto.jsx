@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { getPhotoById, updatePhoto, uploadPhoto } from '../service/photoService';
-import { useNavigate, useNavigation, useParams } from 'react-router-dom';
+import { getPhotoById, updatePhoto } from '../../service/photoService';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const photoSchema = z.object({
     title: z.string().min(3),

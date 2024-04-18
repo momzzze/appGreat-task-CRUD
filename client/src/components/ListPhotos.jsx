@@ -1,22 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import { getAllPhotos } from '../service/photoService'
+import { getAllPhotos, searchAllPhotos } from '../service/photoService'
 import PhotoCard from './PhotoCard'
 import { Link } from 'react-router-dom'
 import Pagination from './Pagination'
+import Search from './Search'
 
 function ListPhotos() {
     const [photos, setPhotos] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        const getPhotos = async () => {
-            const response = await getAllPhotos(currentPage);
-            setPhotos(response.photos);
-            setTotalPages(response.pagination.totalPages);
-        }
-        getPhotos();
-    }, [currentPage])
+        const fetchData = async () => {
+            if (searchQuery) {
+                const response = await searchAllPhotos(currentPage, 6, searchQuery);
+                setPhotos(response.photos);
+                setTotalPages(response.pagination.totalPages);
+            } else {
+                const response = await getAllPhotos(currentPage);
+                setPhotos(response.photos);
+                setTotalPages(response.pagination.totalPages);
+            }
+        };
+
+        fetchData();
+    }, [currentPage, searchQuery]);
+
+    const handleSearch = async (query) => {
+        const response = await searchAllPhotos(1, 6, query);
+        setSearchQuery(query);
+        setPhotos(response.photos);
+        setTotalPages(response.pagination.totalPages);
+        setCurrentPage(1);
+    };
 
     const handlePrevClick = () => {
         setCurrentPage(currentPage - 1);
@@ -29,6 +46,7 @@ function ListPhotos() {
     return (
         <div>
             <div className='container'>
+                <Search onSearch={handleSearch} />
                 <div className="list-photos-container">
                     {photos && photos.map((photo, index) => (
                         <div key={index} className="list-photos-item">

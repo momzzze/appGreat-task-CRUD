@@ -90,3 +90,20 @@ export const updatePhoto = async ({ id, title, description }) => {
         console.log('Error: ', error);
     }
 }
+
+export const searchAllPhotos = async (page, limit, query) => {
+    try {
+        const response = await fetch(`http://localhost:3001/photos/search`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({ page, limit, query }),
+        });
+        return response.json();
+    } catch (error) {
+        console.log('Error: ', error);
+    }
+}

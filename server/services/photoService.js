@@ -12,12 +12,16 @@ const addPhoto = async (data) => {
     return await newPhoto.save();
 };
 
-const getAllPhotos = async (page = 1, limit = 2) => {
+const getAllPhotos = async (page = 1, limit = 2, search = '') => {
     const startIndex = (page - 1) * limit;
-
+    let query = {};
+    if (search) {
+        query = { title: { $regex: search, $options: 'i' } };
+    }
     const totalPhotos = await Photo.countDocuments();
     const totalPages = Math.ceil(totalPhotos / limit);
-    const photos = await Photo.find({}).sort({ created_at: -1 }).skip(startIndex).limit(limit);
+
+    const photos = await Photo.find(query).sort({ created_at: -1 }).skip(startIndex).limit(limit);
 
     return { photos, pagination: { currentPage: page, totalPages } };
 };

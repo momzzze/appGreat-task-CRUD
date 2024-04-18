@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import App from './App.jsx';
 import About from './pages/About/About.jsx';
-import Home from './pages/Home.jsx';
-import AddPhoto from './pages/AddPhoto.jsx';
+import Home from './pages/Home/Home.jsx';
+import AddPhoto from './pages/AddPhoto/AddPhoto.jsx';
 import PhotoDetails from './components/PhotoDetails.jsx';
-import EditPhoto from './pages/EditPhoto.jsx';
+import EditPhoto from './pages/EditPhoto/EditPhoto.jsx';
 
 const router = createBrowserRouter([
   {

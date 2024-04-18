@@ -56,7 +56,18 @@ router.get('/delete/:id', async (req, res) => {
     }
 });
 
+router.post('/search', async (req, res) => {
+    try {
+        const { page, limit, query } = req.body;
+        const { photos, pagination } = await getAllPhotos(page, limit, query);
 
+        // const { photos, pagination } = await getAllPhotos(page, limit, search);
+
+        res.status(200).json({ photos, pagination });
+    } catch (error) {
+        res.status(500).send('Error getting photos');
+    }
+});
 
 
 module.exports = router;
