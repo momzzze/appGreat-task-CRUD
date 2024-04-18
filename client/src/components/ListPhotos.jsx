@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAllPhotos } from '../service/photoService'
 import PhotoCard from './PhotoCard'
 import { Link } from 'react-router-dom'
+import Pagination from './Pagination'
 
 function ListPhotos() {
     const [photos, setPhotos] = useState([])
@@ -16,22 +17,34 @@ function ListPhotos() {
         }
         getPhotos();
     }, [currentPage])
+
+    const handlePrevClick = () => {
+        setCurrentPage(currentPage - 1);
+    };
+
+    const handleNextClick = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
     return (
-        <div className='container'>
-            <div className="list-photos-container">
-                {photos && photos.map((photo, index) => (
-                    <div key={index} className="list-photos-item">
-                        <Link to={`/photo/${photo._id}`}>
-                            <PhotoCard photo={photo} />
-                        </Link>
-                    </div>
-                ))}
+        <div>
+            <div className='container'>
+                <div className="list-photos-container">
+                    {photos && photos.map((photo, index) => (
+                        <div key={index} className="list-photos-item">
+                            <Link to={`/photo/${photo._id}`}>
+                                <PhotoCard photo={photo} />
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="pagination">
-                <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-                <span>{currentPage} of {totalPages}</span>
-                <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPrevClick={handlePrevClick}
+                onNextClick={handleNextClick}
+            />
         </div>
     )
 }
