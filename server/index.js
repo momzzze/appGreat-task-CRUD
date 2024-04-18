@@ -1,5 +1,7 @@
 const express = require('express');
 const router = require('./routes');
+const multer = require('multer');
+const bodyParser = require('body-parser')
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -10,6 +12,10 @@ const dbUrl = process.env.MONGODB_URL;
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(express.json());
 app.use(router);
 
