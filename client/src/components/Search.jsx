@@ -15,7 +15,7 @@ function Search({ onSearch, searchQuery }) {
         setLocalSearchQuery(event.target.value);
     };
     return (
-        <div>
+        <div className='search'>
             <input
                 type="text"
                 placeholder="Search..."

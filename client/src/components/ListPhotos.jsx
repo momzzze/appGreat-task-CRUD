@@ -44,9 +44,9 @@ function ListPhotos() {
     };
 
     return (
-        <div>
+        <div className='list-container'>
+            <Search onSearch={handleSearch} />
             <div className='container'>
-                <Search onSearch={handleSearch} />
                 <div className="list-photos-container">
                     {photos && photos.map((photo, index) => (
                         <div key={index} className="list-photos-item">
