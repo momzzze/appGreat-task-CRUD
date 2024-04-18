@@ -62,7 +62,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 #### Author:
 
 Nikola Ninov
-
-#### Acknowledgements:
-
-- [List any libraries, frameworks, or resources used](#)
