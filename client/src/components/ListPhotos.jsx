@@ -48,13 +48,14 @@ function ListPhotos() {
             <Search onSearch={handleSearch} />
             <div className='container'>
                 <div className="list-photos-container">
-                    {photos && photos.map((photo, index) => (
-                        <div key={index} className="list-photos-item">
-                            <Link to={`/photo/${photo._id}`}>
-                                <PhotoCard photo={photo} />
-                            </Link>
-                        </div>
-                    ))}
+                    {photos &&
+                        photos ? (photos.map((photo, index) => (
+                            <div key={index} className="list-photos-item">
+                                <Link to={`/photo/${photo._id}`}>
+                                    <PhotoCard photo={photo} />
+                                </Link>
+                            </div>
+                        ))) : (<p>No photos found</p>)}
                 </div>
             </div>
             <Pagination

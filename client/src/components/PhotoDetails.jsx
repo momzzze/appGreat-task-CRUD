@@ -29,13 +29,13 @@ function PhotoDetails() {
     }
 
     return (
-        <div>
+        <div className="photo-card">
             {photo && (
                 <div>
                     <img src={photo.image} alt={photo.title} />
                     <h2>{photo.title}</h2>
-                    <div>{photo.description}</div>
-                    <div>
+                    <div className="description">{photo.description}</div>
+                    <div className="actions">
                         <Link to={`/edit/${id}`}>Edit</Link>
                         <button onClick={() => handleDelete(id)}>Delete</button>
                     </div>
