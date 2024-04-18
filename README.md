@@ -1,5 +1,17 @@
 ### Project Title: Photo Upload App
 
+## Run the project
+
+Clone the repository
+
+For client:
+npm install
+npm run dev
+
+For server:
+npm install
+npm start
+
 #### Overview:
 
 This project is a simple CRUD (Create, Read, Update, Delete) application for uploading and managing photos. It consists of a backend built with Node.js and Express for handling photo uploads and data storage, and a frontend built with React using Vite as a build tool for managing UI components and interactions.
@@ -41,7 +53,7 @@ This project is a simple CRUD (Create, Read, Update, Delete) application for upl
 6. **Run Frontend:** Start the frontend development server.
 7. **Access Application:** Access the application in the web browser at the specified URL.
 
-#### Development Roadmap:
+#### Development Road
 
 - **Phase 1:** Setup basic CRUD functionality for photos.
 - **Phase 2:** Implement user authentication and authorization.
